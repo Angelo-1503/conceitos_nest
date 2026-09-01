@@ -1,0 +1,65 @@
+@baseUrl = http://localhost:3000
+
+# RECADOS
+
+### Lista todos os recados
+GET {{baseUrl}}/recados/
+### Lista somente 1 recado
+GET {{baseUrl}}/recados/10/
+### Cria um recado
+POST {{baseUrl}}/recados/
+Content-Type: application/json
+
+{
+  "texto": "Novo recado",
+  "de": "Angelo",
+  "para": "João"
+}
+
+### Atualiza um recado
+PATCH {{baseUrl}}/recados/4/
+Content-Type: application/json
+
+{
+  "texto": "NOVO Recado 2",
+  "lido": false
+}
+
+### Apaga um recado
+DELETE {{baseUrl}}/recados/5/
+
+
+# PESSOAS
+
+### Lista todas as pessoas
+GET {{baseUrl}}/pessoas/
+### Lista somente 1 pessoa
+GET {{baseUrl}}/pessoas/6/
+### Cria uma pessoa
+POST {{baseUrl}}/pessoas/
+Content-Type: application/json
+
+{
+  "email": "angelo@email.com",
+  "password": "123456",
+  "nome": "Angelo"
+}
+
+### Atualiza um pessoas
+PATCH {{baseUrl}}/pessoas/6/
+Content-Type: application/json
+
+{
+  "password": "123123",
+  "nome": "Angelo"
+}
+
+### Apaga um pessoas
+DELETE {{baseUrl}}/pessoas/1/
+
+### AppControllerGetHello
+
+# @name AppControllerGetHello
+
+GET {{baseUrl}}/home/hello
+
