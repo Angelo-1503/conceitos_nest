@@ -5,15 +5,15 @@
 ### Lista todos os recados
 GET {{baseUrl}}/recados/
 ### Lista somente 1 recado
-GET {{baseUrl}}/recados/10/
+GET {{baseUrl}}/recados/1/
 ### Cria um recado
 POST {{baseUrl}}/recados/
 Content-Type: application/json
 
 {
   "texto": "Novo recado",
-  "de": "Angelo",
-  "para": "João"
+  "deId": 1,
+  "paraId": 3
 }
 
 ### Atualiza um recado
@@ -40,9 +40,9 @@ POST {{baseUrl}}/pessoas/
 Content-Type: application/json
 
 {
-  "email": "angelo@email.com",
+  "email": "nicoli@email.com",
   "password": "123456",
-  "nome": "Angelo"
+  "nome": "Nicoli"
 }
 
 ### Atualiza um pessoas

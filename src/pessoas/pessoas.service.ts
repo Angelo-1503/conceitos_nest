@@ -2,12 +2,12 @@ import {
   ConflictException,
   Injectable,
   NotFoundException,
-} from "@nestjs/common";
-import { CreatePessoaDto } from "./dto/create-pessoa.dto";
-import { UpdatePessoaDto } from "./dto/update-pessoa.dto";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { Pessoa } from "./entities/pessoa.entity";
+} from '@nestjs/common';
+import { CreatePessoaDto } from './dto/create-pessoa.dto';
+import { UpdatePessoaDto } from './dto/update-pessoa.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Pessoa } from './entities/pessoa.entity';
 
 @Injectable()
 export class PessoasService {
@@ -30,8 +30,8 @@ export class PessoasService {
 
       return novaPessoa;
     } catch (error) {
-      if (error.code === "23505") {
-        throw new ConflictException("E-mail já cadastrado.");
+      if (error.code === '23505') {
+        throw new ConflictException('E-mail já cadastrado.');
       }
 
       throw error;
@@ -41,7 +41,7 @@ export class PessoasService {
   async findAll() {
     const pessoas = await this.pessoaRepository.find({
       order: {
-        id: "desc",
+        id: 'desc',
       },
     });
 
@@ -51,7 +51,7 @@ export class PessoasService {
   async findOne(id: number) {
     const pessoa = await this.pessoaRepository.findOneBy({ id });
 
-    if (!pessoa) throw new NotFoundException("Pessoa não encontrada");
+    if (!pessoa) throw new NotFoundException('Pessoa não encontrada');
 
     return pessoa;
   }
@@ -67,7 +67,7 @@ export class PessoasService {
       ...dadosPessoa,
     });
 
-    if (!pessoa) throw new NotFoundException("Pesosa não encontrada");
+    if (!pessoa) throw new NotFoundException('Pesosa não encontrada');
 
     return this.pessoaRepository.save(pessoa);
   }
@@ -78,7 +78,7 @@ export class PessoasService {
     });
 
     if (!pessoa) {
-      throw new NotFoundException("Pessoa não encontrada");
+      throw new NotFoundException('Pessoa não encontrada');
     }
 
     return this.pessoaRepository.remove(pessoa);

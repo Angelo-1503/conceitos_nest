@@ -1,11 +1,11 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { Recado } from "./entities/recado.entity";
-import { CreateRecadoDto } from "./dto/create-recado.dto";
-import { UpdateRecadoDto } from "./dto/update-recado.dto";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { PessoasService } from "src/pessoas/pessoas.service";
-import { PaginationDto } from "src/common/dto/pagination.dto";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { Recado } from './entities/recado.entity';
+import { CreateRecadoDto } from './dto/create-recado.dto';
+import { UpdateRecadoDto } from './dto/update-recado.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { PessoasService } from 'src/pessoas/pessoas.service';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Injectable()
 export class RecadosService {
@@ -16,7 +16,7 @@ export class RecadosService {
   ) {}
 
   throwNotFoundError() {
-    throw new NotFoundException("Recado não encontrado");
+    throw new NotFoundException('Recado não encontrado');
   }
 
   async findAll(paginationDto?: PaginationDto) {
@@ -30,7 +30,7 @@ export class RecadosService {
         // para: true,
       },
       order: {
-        id: "desc",
+        id: 'desc',
       },
       select: {
         de: {
@@ -57,7 +57,7 @@ export class RecadosService {
         para: true,
       },
       order: {
-        id: "desc",
+        id: 'desc',
       },
       select: {
         de: {

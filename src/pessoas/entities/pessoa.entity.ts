@@ -1,5 +1,5 @@
-import { IsEmail } from "class-validator";
-import { Recado } from "src/recados/entities/recado.entity";
+import { IsEmail } from 'class-validator';
+import { Recado } from 'src/recados/entities/recado.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,7 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from "typeorm";
+} from 'typeorm';
 
 @Entity()
 export class Pessoa {

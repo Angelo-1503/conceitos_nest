@@ -1,4 +1,4 @@
-import { Pessoa } from "src/pessoas/entities/pessoa.entity";
+import { Pessoa } from 'src/pessoas/entities/pessoa.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,14 +7,14 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from "typeorm";
+} from 'typeorm';
 
 @Entity()
 export class Recado {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "varchar", length: 255 })
+  @Column({ type: 'varchar', length: 255 })
   texto: string;
 
   @Column({ default: false })
@@ -29,14 +29,14 @@ export class Recado {
   updatedAt?: Date; // updatedAt
 
   // Muitos recados podem ser enviados por uma única pessoa (emissor)
-  @ManyToOne(() => Pessoa, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+  @ManyToOne(() => Pessoa, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   // Especifica a coluna "de" que armazena o ID da pessoa que enviou o recado
-  @JoinColumn({ name: "de" })
+  @JoinColumn({ name: 'de' })
   de: Pessoa;
 
   // Muitos recados podem ser enviados por uma única pessoa (destinatário)
-  @ManyToOne(() => Pessoa, { onDelete: "CASCADE", onUpdate: "CASCADE" })
+  @ManyToOne(() => Pessoa, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   // Especifica a coluna "de" que armazena o ID da pessoa que enviou o recado
-  @JoinColumn({ name: "para" })
+  @JoinColumn({ name: 'para' })
   para: Pessoa;
 }
