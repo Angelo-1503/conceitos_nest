@@ -22,7 +22,7 @@ import { SimpleMiddleware } from 'src/common/middlewares/simple.middleware';
       port: 5432,
       username: 'postgres',
       database: 'postgres',
-      password: '123456',
+      password: '123123',
       autoLoadEntities: true, // Carrega entidades sem precisar especifica-las
       synchronize: true, // Sincroniza com o BD. Não deve ser usado em produção
     }),

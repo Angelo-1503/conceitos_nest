@@ -19,7 +19,7 @@ import { UpdateRecadoDto } from './dto/update-recado.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
 import { AuthTokenInterceptor } from 'src/common/interceptors/auth-token.interceptor';
-import { Request } from 'express';
+import type { Request } from 'express';
 
 // CRUD
 // Create -> POST -> Criar um recado
@@ -46,8 +46,7 @@ export class RecadosController {
     // console.log('RecadosController findAll executado');
     // return `Retorna todos os recados. Limit=${limit}, Offset=${offset}.`;
     const recados = await this.recadosService.findAll(paginationDto);
-
-    throw new Error('MENSAGEM');
+    return recados;
 
     // return recados;
   }
