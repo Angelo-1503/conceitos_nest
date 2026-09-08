@@ -4,6 +4,8 @@
 
 ### Lista todos os recados
 GET {{baseUrl}}/recados/
+?limit=10
+&offset=0
 ### Lista somente 1 recado
 GET {{baseUrl}}/recados/1/
 ### Cria um recado
@@ -11,9 +13,9 @@ POST {{baseUrl}}/recados/
 Content-Type: application/json
 
 {
-  "texto": "Novo recado",
-  "deId": 1,
-  "paraId": 3
+  "texto": "Novo recado Angelo para Nicoli",
+  "deId": 2,
+  "paraId": 1
 }
 
 ### Atualiza um recado
@@ -40,9 +42,9 @@ POST {{baseUrl}}/pessoas/
 Content-Type: application/json
 
 {
-  "email": "nicoli@email.com",
+  "email": "angelo@email.com",
   "password": "123456",
-  "nome": "Nicoli"
+  "nome": "Angelo"
 }
 
 ### Atualiza um pessoas

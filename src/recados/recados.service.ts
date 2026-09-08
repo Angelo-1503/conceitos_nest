@@ -20,15 +20,14 @@ export class RecadosService {
   }
 
   async findAll(paginationDto?: PaginationDto) {
+    // console.log('RecadosService findAll executado');
+
     const { limit = 10, offset = 0 } = paginationDto;
 
     const recados = await this.recadoRepository.find({
-      take: limit, // quantos registros serão exibidos
-      skip: offset, // quantos registros serão pulados
-      relations: {
-        // de: true,
-        // para: true,
-      },
+      take: limit, // quantos registros serão exibidos (por página)
+      skip: offset, // quantos registros devem ser pulados
+      // relations: ['de', 'para'],
       order: {
         id: 'desc',
       },
@@ -52,10 +51,7 @@ export class RecadosService {
       where: {
         id,
       },
-      relations: {
-        de: true,
-        para: true,
-      },
+      relations: ['de', 'para'],
       order: {
         id: 'desc',
       },
@@ -110,12 +106,10 @@ export class RecadosService {
   async update(id: number, updateRecadoDto: UpdateRecadoDto) {
     const recado = await this.findOne(id);
 
-    if (!recado) return this.throwNotFoundError();
     recado.texto = updateRecadoDto?.texto ?? recado.texto;
     recado.lido = updateRecadoDto?.lido ?? recado.lido;
 
     await this.recadoRepository.save(recado);
-
     return recado;
   }
 
