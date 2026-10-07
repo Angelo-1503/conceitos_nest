@@ -6,10 +6,13 @@
 GET {{baseUrl}}/recados/
 ?limit=10
 &offset=0
+Authorization: Bearer 123456
 ### Lista somente 1 recado
 GET {{baseUrl}}/recados/1/
+Authorization: Bearer 123456
 ### Cria um recado
 POST {{baseUrl}}/recados/
+Authorization: Bearer 123456
 Content-Type: application/json
 
 {
@@ -28,7 +31,7 @@ Content-Type: application/json
 }
 
 ### Apaga um recado
-DELETE {{baseUrl}}/recados/5/
+DELETE {{baseUrl}}/recados/4/
 
 
 # PESSOAS
@@ -36,7 +39,7 @@ DELETE {{baseUrl}}/recados/5/
 ### Lista todas as pessoas
 GET {{baseUrl}}/pessoas/
 ### Lista somente 1 pessoa
-GET {{baseUrl}}/pessoas/6/
+GET {{baseUrl}}/pessoas/2/
 ### Cria uma pessoa
 POST {{baseUrl}}/pessoas/
 Content-Type: application/json

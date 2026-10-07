@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -11,15 +10,12 @@ import {
   Post,
   Query,
   Req,
-  UseInterceptors,
+  UseGuards,
 } from '@nestjs/common';
 import { RecadosService } from './recados.service';
 import { CreateRecadoDto } from './dto/create-recado.dto';
 import { UpdateRecadoDto } from './dto/update-recado.dto';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
-import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
-import { AuthTokenInterceptor } from 'src/common/interceptors/auth-token.interceptor';
-import type { Request } from 'express';
 
 // CRUD
 // Create -> POST -> Criar um recado
@@ -34,21 +30,15 @@ import type { Request } from 'express';
 // DTO - Data Transfer Object -> Objeto de transferência de dados
 // DTO -> Objeto simples -> Validar dados / Transformar dados
 
-@UseInterceptors(AuthTokenInterceptor)
 @Controller('recados')
 export class RecadosController {
   constructor(private readonly recadosService: RecadosService) {}
 
   @HttpCode(HttpStatus.OK)
   @Get()
-  async findAll(@Query() paginationDto: PaginationDto, @Req() req: Request) {
-    console.log('RecadosController', req['user']);
-    // console.log('RecadosController findAll executado');
-    // return `Retorna todos os recados. Limit=${limit}, Offset=${offset}.`;
+  async findAll(@Query() paginationDto: PaginationDto) {
     const recados = await this.recadosService.findAll(paginationDto);
     return recados;
-
-    // return recados;
   }
 
   @Get(':id')
